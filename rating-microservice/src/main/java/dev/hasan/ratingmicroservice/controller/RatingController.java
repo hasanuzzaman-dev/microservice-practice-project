@@ -41,11 +41,17 @@ public class RatingController {
     @GetMapping
     public ResponseEntity<List<Rating>> getAllRating(){
         List<Rating> allRating = ratingService.getAllRating();
-
         if (allRating.isEmpty()){
             return ResponseEntity.status(HttpStatus.FOUND).body(allRating);
         }
-
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(allRating);
     }
+
+    // Gat all rating by Hotel
+    @GetMapping("/hotels/{hotelId}")
+    public ResponseEntity<List<Rating>> getRatingByHotelId(@PathVariable String hotelId){
+        return  ResponseEntity.ok(ratingService.getRatingsByHotelId(hotelId));
+    }
+
+
 }
