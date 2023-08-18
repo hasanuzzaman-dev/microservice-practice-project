@@ -1,0 +1,10 @@
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false # as a client not register in service registry
+    fetch-registry: false
+
+server:
+  port: 8084
